@@ -53,7 +53,7 @@
                         <segue destination="rYt-j1-NgN" kind="relationship" relationship="viewControllers" id="gEE-ZN-pxs"/>
                         <segue destination="EgZ-YL-3mV" kind="relationship" relationship="viewControllers" id="fVl-9m-pgg"/>
                         <segue destination="ejN-g3-VWf" kind="relationship" relationship="viewControllers" id="YgM-AF-ggc"/>
-                        <segue destination="e9K-bu-HhF" kind="relationship" relationship="viewControllers" id="Z5E-B3-VbU"/>
+                        <segue destination="HTI-24-E9T" kind="relationship" relationship="viewControllers" id="Z5E-B3-VbU"/>
                         <segue destination="XgG-to-t6j" kind="relationship" relationship="viewControllers" id="N3W-EN-hOg"/>
                     </connections>
                 </tabBarController>
@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="3175" y="521"/>
         </scene>
-        <!--Game View Controller - Social-->
+        <!--View Controller - Photos-->
         <scene sceneID="ORg-Jd-l6F">
             <objects>
-                <viewController id="e9K-bu-HhF" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController id="e9K-bu-HhF" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BTB-Yd-4t5"/>
                         <viewControllerLayoutGuide type="bottom" id="SbH-DA-RTA"/>
@@ -185,22 +185,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Social" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTZ-9m-Kpn">
-                                <rect key="frame" x="466" y="363" width="92" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-0l-4Z9">
+                                <rect key="frame" x="-38" y="42" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Social" id="OWY-Au-9VD"/>
-                    <navigationItem key="navigationItem" id="jqJ-s8-OmD"/>
+                    <navigationItem key="navigationItem" title="Photos" id="csS-i3-ZOF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="2pe-mJ-QGx">
+                            <connections>
+                                <action selector="cameraButtonTapped:" destination="e9K-bu-HhF" id="bPU-vc-aJk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="aOs-oE-hsG">
+                            <connections>
+                                <action selector="refresh:" destination="e9K-bu-HhF" id="FpP-cI-8kC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoScrollView" destination="fSN-0l-4Z9" id="ynD-hN-uZF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bma-lx-rCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="1493"/>
+            <point key="canvasLocation" x="3317" y="1493"/>
         </scene>
         <!--Game View Controller - Admin-->
         <scene sceneID="yyi-c5-J5b">
@@ -230,7 +241,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gf-L9-K2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3175" y="1493"/>
+            <point key="canvasLocation" x="4405" y="1493"/>
+        </scene>
+        <!--Navigation Controller - Social-->
+        <scene sceneID="Mt1-8w-5lr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTI-24-E9T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Social" id="OWY-Au-9VD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vr1-tr-WXe">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="e9K-bu-HhF" kind="relationship" relationship="rootViewController" id="lb0-vm-dc3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAT-h1-sXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2087" y="1493"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
