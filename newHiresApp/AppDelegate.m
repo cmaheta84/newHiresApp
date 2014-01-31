@@ -7,12 +7,43 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // ****************************************************************************
+    // Fill in with your Parse credentials:
+    // ****************************************************************************
+    // [Parse setApplicationId:@"YOUR_APPLICATION_ID" clientKey:@"YOUR_CLIENT_KEY"];
+    [Parse setApplicationId:@"1hOfx55sV1MB2w3lDBhwl9AdbBgXGj4S9iRFHaVM" clientKey:@"MCc3d0sbTDbcM5mgXEMMIiGqzYZmYkLDfRu4mZv2"];
+    // Wipe out old user defaults
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"objectIDArray"]){
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"objectIDArray"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    // Simple way to create a user or log in the existing user
+    // For your app, you will probably want to present your own login screen
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if (!currentUser) {
+        // Dummy username and password
+        PFUser *user = [PFUser user];
+        user.username = @"matt";
+        user.password = @"password";
+        user.email = @"matt@example.com";
+        
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                // Assume the error is because the user already existed.
+                [PFUser logInWithUsername:@"matt" password:@"password"];
+            }
+        }];
+    }
+
     return YES;
 }
 							
