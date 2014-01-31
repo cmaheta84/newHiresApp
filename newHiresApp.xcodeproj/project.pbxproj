@@ -130,17 +130,17 @@
 		4C7D79201891CD7A007F1692 /* newHiresApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C7D79291891CD7A007F1692 /* AppDelegate.h */,
+				4C7D792A1891CD7A007F1692 /* AppDelegate.m */,
+				4C7D792F1891CD7A007F1692 /* Main.storyboard */,
+				925FE0EA189213F3002C11D3 /* TabBarController.h */,
+				925FE0EB189213F3002C11D3 /* TabBarController.m */,
 				4C7D79581891CDFF007F1692 /* Home */,
 				925FE0ED18921436002C11D3 /* Campus */,
 				925FE0EF18921449002C11D3 /* Timeline */,
 				925FE0EE18921444002C11D3 /* Game */,
 				4C7D79591891CE40007F1692 /* Social */,
 				4C7D79601891CF06007F1692 /* Videos */,
-				4C7D79291891CD7A007F1692 /* AppDelegate.h */,
-				4C7D792A1891CD7A007F1692 /* AppDelegate.m */,
-				4C7D792F1891CD7A007F1692 /* Main.storyboard */,
-				925FE0EA189213F3002C11D3 /* TabBarController.h */,
-				925FE0EB189213F3002C11D3 /* TabBarController.m */,
 				4C7D79351891CD7A007F1692 /* Images.xcassets */,
 				4C7D79211891CD7A007F1692 /* Supporting Files */,
 			);

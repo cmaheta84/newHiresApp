@@ -53,6 +53,8 @@
                         <segue destination="rYt-j1-NgN" kind="relationship" relationship="viewControllers" id="gEE-ZN-pxs"/>
                         <segue destination="EgZ-YL-3mV" kind="relationship" relationship="viewControllers" id="fVl-9m-pgg"/>
                         <segue destination="ejN-g3-VWf" kind="relationship" relationship="viewControllers" id="YgM-AF-ggc"/>
+                        <segue destination="e9K-bu-HhF" kind="relationship" relationship="viewControllers" id="Z5E-B3-VbU"/>
+                        <segue destination="XgG-to-t6j" kind="relationship" relationship="viewControllers" id="N3W-EN-hOg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ui-K3-OoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvR-Km-yFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2091" y="-63"/>
+            <point key="canvasLocation" x="2087" y="-511"/>
         </scene>
         <!--Timeline View Controller - Timeline-->
         <scene sceneID="1am-N4-3FU">
@@ -113,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tIZ-jw-3tg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3199" y="-63"/>
+            <point key="canvasLocation" x="3195" y="-511"/>
         </scene>
         <!--Game View Controller - Ya-Who?-->
         <scene sceneID="ufO-XK-Cbe">
@@ -141,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAX-TZ-P0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2091" y="1005"/>
+            <point key="canvasLocation" x="2087" y="509"/>
         </scene>
         <!--Video View Controller - Videos-->
         <scene sceneID="eua-Xr-WUy">
@@ -169,7 +171,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhn-Qc-mQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3179" y="1017"/>
+            <point key="canvasLocation" x="3175" y="521"/>
+        </scene>
+        <!--Game View Controller - Social-->
+        <scene sceneID="ORg-Jd-l6F">
+            <objects>
+                <viewController id="e9K-bu-HhF" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BTB-Yd-4t5"/>
+                        <viewControllerLayoutGuide type="bottom" id="SbH-DA-RTA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kig-t9-Oye">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Social" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTZ-9m-Kpn">
+                                <rect key="frame" x="466" y="363" width="92" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Social" id="OWY-Au-9VD"/>
+                    <navigationItem key="navigationItem" id="jqJ-s8-OmD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bma-lx-rCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2087" y="1493"/>
+        </scene>
+        <!--Game View Controller - Admin-->
+        <scene sceneID="yyi-c5-J5b">
+            <objects>
+                <viewController id="XgG-to-t6j" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oeP-7y-qxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="JGW-pO-yRh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6tT-0W-ZeA">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Admin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fto-8c-2gC">
+                                <rect key="frame" x="464" y="363" width="97" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Admin" id="TLP-Zz-AYp"/>
+                    <navigationItem key="navigationItem" id="wDx-bQ-sbM"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Gf-L9-K2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3175" y="1493"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
