@@ -14,12 +14,16 @@
 @interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MBProgressHUDDelegate>
 {
     IBOutlet UIScrollView *photoScrollView;
-    NSMutableArray *allImages;
+    NSMutableArray *allPeople;
     
     MBProgressHUD *HUD;
     MBProgressHUD *refreshHUD;
-}
 
+}
+@property (nonatomic, retain) NSString *personName;
+@property (nonatomic, retain) NSString *personRole;
+@property (nonatomic, retain) NSString *personDept;
+@property (nonatomic, retain) NSString *personGP;
 - (IBAction)refresh:(id)sender;
 - (IBAction)cameraButtonTapped:(id)sender;
 - (void)uploadImage:(NSData *)imageData;

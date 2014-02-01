@@ -17,6 +17,15 @@
 @property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, retain) UIImage *selectedImage;
 @property (nonatomic, retain) NSString *imageName;
+@property (weak, nonatomic) IBOutlet UITextField *nameText;
+@property (weak, nonatomic) IBOutlet UITextField *roleText;
+@property (weak, nonatomic) IBOutlet UITextField *deptText;
+@property (weak, nonatomic) IBOutlet UITextField *gpText;
+
+@property (nonatomic, assign) NSString *personname;
+@property (nonatomic, assign) NSString *personrole;
+@property (nonatomic, assign) NSString *persondept;
+@property (nonatomic, assign) NSString *persongp;
 
 - (IBAction)close:(id)sender;
 @end

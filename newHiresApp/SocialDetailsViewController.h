@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+#import <Parse/PFFile.h>
 
-@interface SocialDetailsViewController : UIViewController
-
+@interface SocialDetailsViewController : UIViewController <MBProgressHUDDelegate>
+@property (assign, nonatomic) NSData *imagedata;
 @end

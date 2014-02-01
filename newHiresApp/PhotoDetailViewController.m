@@ -40,6 +40,10 @@
 {
     [super viewDidLoad];
     self.photoImageView.image = selectedImage;
+    self.nameText.text = self.personname;
+    self.roleText.text = self.personrole;
+    self.deptText.text = self.persondept;
+    self.gpText.text = self.persongp;
     // Do any additional setup after loading the view from its nib.
 }
 
