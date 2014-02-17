@@ -50,7 +50,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="fv1-e7-2M6" kind="relationship" relationship="viewControllers" id="bJr-f6-BCN"/>
-                        <segue destination="rYt-j1-NgN" kind="relationship" relationship="viewControllers" id="gEE-ZN-pxs"/>
+                        <segue destination="jfe-cw-KmJ" kind="relationship" relationship="viewControllers" id="P8C-9P-aX3"/>
                         <segue destination="EgZ-YL-3mV" kind="relationship" relationship="viewControllers" id="fVl-9m-pgg"/>
                         <segue destination="ejN-g3-VWf" kind="relationship" relationship="viewControllers" id="YgM-AF-ggc"/>
                         <segue destination="HTI-24-E9T" kind="relationship" relationship="viewControllers" id="Z5E-B3-VbU"/>
@@ -90,32 +90,14 @@
             <point key="canvasLocation" x="2087" y="-511"/>
         </scene>
         <!--Timeline View Controller - Timeline-->
-        <scene sceneID="1am-N4-3FU">
+        <scene sceneID="nwq-wR-851">
             <objects>
-                <viewController id="rYt-j1-NgN" customClass="TimelineViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NiF-su-nPA"/>
-                        <viewControllerLayoutGuide type="bottom" id="40d-H7-tll"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aWY-L1-N5H">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timeline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weS-Xx-LuK">
-                                <rect key="frame" x="450" y="363" width="125" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Timeline" id="2Mj-6N-sk7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tIZ-jw-3tg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="jfe-cw-KmJ" customClass="TimelineViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Timeline" id="GDp-Bm-VuD"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6E-3O-Hf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3195" y="-511"/>
+            <point key="canvasLocation" x="3295" y="-511"/>
         </scene>
         <!--Game View Controller - Ya-Who?-->
         <scene sceneID="ufO-XK-Cbe">
@@ -171,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhn-Qc-mQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3175" y="521"/>
+            <point key="canvasLocation" x="3295" y="521"/>
         </scene>
         <!--View Controller - Photos-->
         <scene sceneID="ORg-Jd-l6F">
@@ -211,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bma-lx-rCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3317" y="1493"/>
+            <point key="canvasLocation" x="3295" y="1493"/>
         </scene>
         <!--Game View Controller - Admin-->
         <scene sceneID="yyi-c5-J5b">
@@ -241,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gf-L9-K2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4405" y="1493"/>
+            <point key="canvasLocation" x="4501" y="1493"/>
         </scene>
         <!--Navigation Controller - Social-->
         <scene sceneID="Mt1-8w-5lr">
