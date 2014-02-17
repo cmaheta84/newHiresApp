@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface CampusViewController : UIViewController
+@interface CampusViewController : UIViewController  <MKMapViewDelegate>
 
 @end
