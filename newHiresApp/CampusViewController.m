@@ -11,17 +11,19 @@
 #import <MapKit/MKAnnotation.h>
 
 @interface CampusViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *mainImageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *rightLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *buildingImageView;
-@property (weak, nonatomic) IBOutlet UILabel *downLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dYKLabel;
 @property (retain, nonatomic) IBOutlet MKMapView *mapView;
 @property (assign, nonatomic) NSInteger selectedBuilding;
 @property (strong, nonatomic) NSMutableArray *downLabelList;
 @property (strong, nonatomic) NSMutableArray *rightLabelList;
+
 - (IBAction)onReset:(id)sender;
 - (IBAction)onZoomOut:(id)sender;
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view;
+
 @end
 
 @implementation CampusViewController
@@ -78,7 +80,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed: 75.0/255.0f green:0.0/255.0f blue:130.0/255.0f alpha:1.0];
+    //self.view.backgroundColor = [UIColor colorWithRed: 75.0/255.0f green:0.0/255.0f blue:130.0/255.0f alpha:1.0];
     self.selectedBuilding = 1;
     NSString *label = [@"Building A\n" stringByAppendingString:@"A2 – Design team for Yahoo! Homepage (editorial and engineering).\n Theme is News room. \n"];
     label = [label stringByAppendingString:@"Photos are loosely inspired by Yahoo! Trending Now and Yahoo! Slideshows. They represent a sampling of news events since the death of Jerry Garcia, which was the first news story Yahoo! linked to in 1995.\n"];
@@ -92,17 +94,15 @@
     [self.downLabelList addObject:@""];
     [self.downLabelList addObject:labelDYK];
     [self fillUpData];
-    UIImage *image = [UIImage imageNamed:@"2.jpg"];
-    [self.mainImageView setImage:image];
     
-    UIImage *imageBuild = [UIImage imageNamed:@"1B.jpg"];
+    UIImage *imageBuild = [UIImage imageNamed:@"BuildingPhotos/Campus.jpg"];
     [self.buildingImageView setImage:imageBuild];
-    self.downLabel.text = labelDYK;
-    self.downLabel.font = [UIFont boldSystemFontOfSize:14];
-    self.downLabel.textColor = [UIColor colorWithRed: 147.0/255.0f green:112.0/255.0f blue:219.0/255.0f alpha:1.0];
+    self.dYKLabel.text = labelDYK;
+    //self.dYKLabel.font = [UIFont boldSystemFontOfSize:14];
+    //self.dYKLabel.textColor = [UIColor colorWithRed: 147.0/255.0f green:112.0/255.0f blue:219.0/255.0f alpha:1.0];
     self.rightLabel.text = label;
-    self.rightLabel.font = [UIFont boldSystemFontOfSize:18];
-    self.rightLabel.textColor = [UIColor colorWithRed: 147.0/255.0f green:112.0/255.0f blue:219.0/255.0f alpha:1.0];
+    //self.rightLabel.font = [UIFont boldSystemFontOfSize:18];
+    //self.rightLabel.textColor = [UIColor colorWithRed: 147.0/255.0f green:112.0/255.0f blue:219.0/255.0f alpha:1.0];
     
     _mapView.showsUserLocation = YES;
     _mapView.zoomEnabled = YES;
@@ -119,7 +119,7 @@
     region1.center.longitude = -122.024459;
     MKPointAnnotation *ann1 = [[MKPointAnnotation alloc] init];
     ann1.coordinate = region1.center;
-    ann1.title = @"BuildingA";
+    ann1.title = @"A";
     [_mapView addAnnotation:ann1];
 	
     MKCoordinateRegion region2;
@@ -127,7 +127,7 @@
     region2.center.longitude = -122.025959;
     MKPointAnnotation *ann2 = [[MKPointAnnotation alloc] init];
     ann2.coordinate = region2.center;
-    ann2.title = @"BuildingB";
+    ann2.title = @"B";
     [_mapView addAnnotation:ann2];
     
     MKCoordinateRegion region3;
@@ -135,7 +135,7 @@
     region3.center.longitude = -122.0250;
     MKPointAnnotation *ann3 = [[MKPointAnnotation alloc] init];
     ann3.coordinate = region3.center;
-    ann3.title = @"BuildingC";
+    ann3.title = @"C";
     [_mapView addAnnotation:ann3];
     
     MKCoordinateRegion region4;
@@ -143,7 +143,7 @@
     region4.center.longitude = -122.0260;
     MKPointAnnotation *ann4 = [[MKPointAnnotation alloc] init];
     ann4.coordinate = region4.center;
-    ann4.title = @"BuildingD";
+    ann4.title = @"D";
     [_mapView addAnnotation:ann4];
     
     MKCoordinateRegion region5;
@@ -151,7 +151,7 @@
     region5.center.longitude = -122.0265;
     MKPointAnnotation *ann5 = [[MKPointAnnotation alloc] init];
     ann5.coordinate = region5.center;
-    ann5.title = @"BuildingE";
+    ann5.title = @"E";
     [_mapView addAnnotation:ann5];
     
     /*F and G*/
@@ -160,7 +160,7 @@
     region6.center.longitude = -122.023961;
     MKPointAnnotation *ann6 = [[MKPointAnnotation alloc] init];
     ann6.coordinate = region6.center;
-    ann6.title = @"BuildingF";
+    ann6.title = @"F";
     [_mapView addAnnotation:ann6];
     
     MKCoordinateRegion region7;
@@ -168,12 +168,12 @@
     region7.center.longitude = -122.023961;
     MKPointAnnotation *ann7 = [[MKPointAnnotation alloc] init];
     ann7.coordinate = region7.center;
-    ann7.title = @"BuildingG";
+    ann7.title = @"G";
     [_mapView addAnnotation:ann7];
     [_mapView selectAnnotation:nil animated:NO];
     // Do any additional setup after loading the view.
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -182,36 +182,37 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    NSString *imageName = @"B.jpg";
-    imageName = [view.annotation.title stringByAppendingString:imageName];
+    NSString *imageDirectory = @"BuildingPhotos/";
+    NSString *imageName = @"_Building.jpg";
+    imageName = [imageDirectory stringByAppendingString:[view.annotation.title stringByAppendingString:imageName]];
     if( ([view.annotation coordinate].latitude == 37.416) && ([view.annotation coordinate].longitude ==-122.023961))
     {
         self.rightLabel.text = self.rightLabelList[7];
-        self.downLabel.text = self.downLabelList[7];
+        self.dYKLabel.text = self.downLabelList[7];
     }
     else if( ([view.annotation coordinate].latitude == 37.415) && ([view.annotation coordinate].longitude ==-122.023961))
     {
         self.rightLabel.text = self.rightLabelList[6];
-        self.downLabel.text = self.downLabelList[6];
+        self.dYKLabel.text = self.downLabelList[6];
     } else if( ([view.annotation coordinate].latitude == 37.416581) && ([view.annotation coordinate].longitude ==-122.0265))
     {
         self.rightLabel.text = self.rightLabelList[5];
-        self.downLabel.text = self.downLabelList[5];
+        self.dYKLabel.text = self.downLabelList[5];
     } else if( ([view.annotation coordinate].latitude == 37.417599) && ([view.annotation coordinate].longitude ==-122.0260))
     {
         self.rightLabel.text = self.rightLabelList[4];
-        self.downLabel.text = self.downLabelList[4];
+        self.dYKLabel.text = self.downLabelList[4];
     } else if( ([view.annotation coordinate].latitude == 37.417599) && ([view.annotation coordinate].longitude ==-122.0250))
     {
         self.rightLabel.text = self.rightLabelList[3];
-        self.downLabel.text = self.downLabelList[3];
+        self.dYKLabel.text = self.downLabelList[3];
     } else if( ([view.annotation coordinate].latitude == 37.418599) && ([view.annotation coordinate].longitude ==-122.025959))
     {
         self.rightLabel.text = self.rightLabelList[2];
-        self.downLabel.text = self.downLabelList[2];
+        self.dYKLabel.text = self.downLabelList[2];
     } else {
         self.rightLabel.text = self.rightLabelList[1];
-        self.downLabel.text = self.downLabelList[1];
+        self.dYKLabel.text = self.downLabelList[1];
     }
     UIImage *image = [UIImage imageNamed:imageName];
     [self.buildingImageView setImage:image];
@@ -222,8 +223,6 @@
     NSLog(@"%f",[annotation coordinate].latitude);
     NSLog(@"%f",[annotation coordinate].longitude);
     NSLog(@"%@",annotation.title);
-    UIImage *image = [UIImage imageNamed:annotation.title];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"mapPin"];
     if (!aView) {
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
@@ -231,20 +230,13 @@
     
         aView.annotation = annotation;
     }
-    [aView addSubview:imageView];
+    NSString *imageFileName = [annotation.title stringByAppendingString:@"_Marker"];
+    aView.image = [UIImage imageNamed:imageFileName];
+
     return aView;
 }
 
-- (void)onTimer
-{
-    int r = arc4random() % 18;
-    if(r == 0) r = r+1;
-    NSString *imageName = @"";
-    imageName = [imageName stringByAppendingFormat:@"%d.jpg",r];
-    UIImage *image = [UIImage imageNamed:imageName];
-    [self.mainImageView setImage:image];
-    [self.view reloadInputViews];
-}
+
 
 - (IBAction)onReset:(id)sender {
 }

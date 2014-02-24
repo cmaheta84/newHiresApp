@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iCarousel.h"
 
-@interface TimelineViewController : UIPageViewController
+@interface TimelineViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
 @end
