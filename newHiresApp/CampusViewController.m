@@ -108,47 +108,47 @@
     _mapView.zoomEnabled = YES;
     self.mapView.delegate = self;
     MKCoordinateRegion region;
-    region.center.latitude = 37.4172;
-    region.center.longitude = -122.025459;
+    region.center.latitude = 37.4169;
+    region.center.longitude = -122.024459;
     region.span.latitudeDelta = 0.005;
     region.span.longitudeDelta = 0.005;
     [_mapView setRegion:region animated:YES];
     
     MKCoordinateRegion region1;
-    region1.center.latitude = 37.418599;
+    region1.center.latitude = 37.418499;
     region1.center.longitude = -122.024459;
     MKPointAnnotation *ann1 = [[MKPointAnnotation alloc] init];
     ann1.coordinate = region1.center;
-    ann1.title = @"A";
+    ann1.title = @"C";
     [_mapView addAnnotation:ann1];
 	
     MKCoordinateRegion region2;
-    region2.center.latitude = 37.418599;
-    region2.center.longitude = -122.025959;
+    region2.center.latitude = 37.418499;
+    region2.center.longitude = -122.025659;
     MKPointAnnotation *ann2 = [[MKPointAnnotation alloc] init];
     ann2.coordinate = region2.center;
     ann2.title = @"B";
     [_mapView addAnnotation:ann2];
     
     MKCoordinateRegion region3;
-    region3.center.latitude = 37.417599;
+    region3.center.latitude = 37.417499;
     region3.center.longitude = -122.0250;
     MKPointAnnotation *ann3 = [[MKPointAnnotation alloc] init];
     ann3.coordinate = region3.center;
-    ann3.title = @"C";
+    ann3.title = @"D";
     [_mapView addAnnotation:ann3];
     
     MKCoordinateRegion region4;
-    region4.center.latitude = 37.417599;
+    region4.center.latitude = 37.417499;
     region4.center.longitude = -122.0260;
     MKPointAnnotation *ann4 = [[MKPointAnnotation alloc] init];
     ann4.coordinate = region4.center;
-    ann4.title = @"D";
+    ann4.title = @"A";
     [_mapView addAnnotation:ann4];
     
     MKCoordinateRegion region5;
-    region5.center.latitude = 37.416581;
-    region5.center.longitude = -122.0265;
+    region5.center.latitude = 37.416;
+    region5.center.longitude = -122.0255;
     MKPointAnnotation *ann5 = [[MKPointAnnotation alloc] init];
     ann5.coordinate = region5.center;
     ann5.title = @"E";
@@ -156,19 +156,19 @@
     
     /*F and G*/
     MKCoordinateRegion region6;
-    region6.center.latitude = 37.415;
-    region6.center.longitude = -122.023961;
+    region6.center.latitude = 37.4147;
+    region6.center.longitude = -122.0242;
     MKPointAnnotation *ann6 = [[MKPointAnnotation alloc] init];
     ann6.coordinate = region6.center;
-    ann6.title = @"F";
+    ann6.title = @"G";
     [_mapView addAnnotation:ann6];
     
     MKCoordinateRegion region7;
-    region7.center.latitude = 37.416;
+    region7.center.latitude = 37.4155;
     region7.center.longitude = -122.023961;
     MKPointAnnotation *ann7 = [[MKPointAnnotation alloc] init];
     ann7.coordinate = region7.center;
-    ann7.title = @"G";
+    ann7.title = @"F";
     [_mapView addAnnotation:ann7];
     [_mapView selectAnnotation:nil animated:NO];
     // Do any additional setup after loading the view.
@@ -220,9 +220,9 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    NSLog(@"%f",[annotation coordinate].latitude);
-    NSLog(@"%f",[annotation coordinate].longitude);
-    NSLog(@"%@",annotation.title);
+    //NSLog(@"%f",[annotation coordinate].latitude);
+    //NSLog(@"%f",[annotation coordinate].longitude);
+    //NSLog(@"%@",annotation.title);
     MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"mapPin"];
     if (!aView) {
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation

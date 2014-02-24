@@ -10,9 +10,11 @@
 
 @interface TimelineItem : NSObject
 
-@property (nonatomic, strong) NSData *date;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *description;
-@property (nonatomic, strong) NSString *imageUrl;
+@property (readonly) NSString *title;
+@property (readonly) NSDate *date;
+@property (readonly) NSString *description;
+@property (readonly) NSNumber *imageId;
+
+- (id)initWithJSONDictionary:(NSDictionary *)jsonDictionary;
 
 @end

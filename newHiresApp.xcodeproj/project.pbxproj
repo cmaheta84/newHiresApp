@@ -58,6 +58,8 @@
 		925FE0F51892149F002C11D3 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0F41892149F002C11D3 /* TimelineViewController.m */; };
 		925FE0F8189214A8002C11D3 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0F7189214A8002C11D3 /* GameViewController.m */; };
 		925FE0FB1892188D002C11D3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0FA1892188D002C11D3 /* HomeViewController.m */; };
+		92AD339E18BB30110097BEF4 /* History.json in Resources */ = {isa = PBXBuildFile; fileRef = 92AD339D18BB30110097BEF4 /* History.json */; };
+		92AD33A018BB40470097BEF4 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92AD339F18BB40470097BEF4 /* wallpaper.jpg */; };
 		92B90EBA18BABC8500F1962A /* BuildingPhotos in Resources */ = {isa = PBXBuildFile; fileRef = 92B90EB818BABC8500F1962A /* BuildingPhotos */; };
 		92B90EBB18BABC8500F1962A /* CampusPhotos in Resources */ = {isa = PBXBuildFile; fileRef = 92B90EB918BABC8500F1962A /* CampusPhotos */; };
 /* End PBXBuildFile section */
@@ -141,6 +143,8 @@
 		925FE0F7189214A8002C11D3 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		925FE0F91892188D002C11D3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		925FE0FA1892188D002C11D3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		92AD339D18BB30110097BEF4 /* History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = History.json; sourceTree = "<group>"; };
+		92AD339F18BB40470097BEF4 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		92B90EB818BABC8500F1962A /* BuildingPhotos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BuildingPhotos; sourceTree = "<group>"; };
 		92B90EB918BABC8500F1962A /* CampusPhotos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CampusPhotos; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,10 +247,12 @@
 		4C7D79211891CD7A007F1692 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92AD339D18BB30110097BEF4 /* History.json */,
 				92B90EB818BABC8500F1962A /* BuildingPhotos */,
 				92B90EB918BABC8500F1962A /* CampusPhotos */,
 				920B610218B9671B00BE006C /* TimelinePhotos */,
 				920B60A318B95C6100BE006C /* page.png */,
+				92AD339F18BB40470097BEF4 /* wallpaper.jpg */,
 				4C6AA74918A9A9C100287E9C /* zoomOut.jpeg */,
 				4CC93EB7189C384A00ACE18A /* 37x-Checkmark.png */,
 				4CC93EB8189C384A00ACE18A /* Crowd.jpg */,
@@ -437,8 +443,10 @@
 			files = (
 				4CC93EC5189C384A00ACE18A /* Default@2x.png in Resources */,
 				4CC93EC1189C384A00ACE18A /* 37x-Checkmark.png in Resources */,
+				92AD33A018BB40470097BEF4 /* wallpaper.jpg in Resources */,
 				4CC93ED8189C386200ACE18A /* PhotoDetailViewController.xib in Resources */,
 				4CC93ECA189C384A00ACE18A /* Sunflowers.jpg in Resources */,
+				92AD339E18BB30110097BEF4 /* History.json in Resources */,
 				4CC93EC8189C384A00ACE18A /* ParseLogo,jpg.jpg in Resources */,
 				4CC93EC7189C384A00ACE18A /* Lime.jpg in Resources */,
 				4C7D79311891CD7A007F1692 /* Main.storyboard in Resources */,
