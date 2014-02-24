@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+#import <Parse/parse.h>
 #import "MBProgressHUD.h"
 #include <stdlib.h> // For math functions including arc4random (a number randomizer)
 

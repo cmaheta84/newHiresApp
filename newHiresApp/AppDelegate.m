@@ -43,7 +43,10 @@
             }
         }];
     }
-
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UITabBar appearance] setTintColor:[UIColor purpleColor]];
+    
     return YES;
 }
 							
