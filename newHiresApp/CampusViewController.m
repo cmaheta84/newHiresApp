@@ -38,21 +38,20 @@
 
 - (void) fillUpData
 {
-    NSString *labelB = [[[[[@"Building B\n" stringByAppendingString:@"Sports Studio -- first floor\n" ] stringByAppendingFormat:@"One of our three studios.  The other two are in Santa Monica (Entertainment)  and New York (Finance)\n"]stringByAppendingFormat:@"Sports Talk Live (taped in this studio) airs every weeknight on Comcast SportsNet Bay Area.\n"] stringByAppendingFormat:@"The posters in the hallways are shows new & old in SM, NY and SNV.June 4th we hosted Vernon Davis (49ers player) on campus for a live show.\n"] stringByAppendingFormat:@"B3 is where the Ergo Lab is located."];
+    NSString *labelB = [[[@"Building B\n" stringByAppendingString:@"Sports Studio -- first floor\n" ] stringByAppendingFormat:@"One of our three studios.  The other two are in Santa Monica (Entertainment)  and New York (Finance)\n"]stringByAppendingFormat:@"Sports Talk Live (taped in this studio) airs every weeknight on Comcast SportsNet Bay Area.\n"];
     
     [self.rightLabelList addObject:labelB];
     
     NSString *labelDYKb = @"The lawn and patio areas are used for a variety of events including Music on the Greens (kick-off to summer, Picnic), departmental parties and other employee events.The campus was designed by RMW, who also designed the buildings for e-Bay, Lucas Arts, and the NYSE Palo Alto building.Every building has art in front of it.";
     [self.downLabelList addObject:labelDYKb];
     
-    NSString *labelC = [[[[@"Building C\n" stringByAppendingString:@"URL's Seats 500 people and serves about 1,800 people each day.  It is the location for the FYI (For Yahoos Information) meeting every Friday, Marissa rarely misses the meeting (only twice so far).\n"]stringByAppendingFormat:@"John Lennon Painting Painted with bare hands in 6 minutes by an artist at a Y! Year End Party, then purchased for charity by one of our founders, David Filo.\n"] stringByAppendingFormat:@"3D painting between URL’s and the game room/coffee bar.  Created live on campus by 3 artists in honor of Yahoo!’s 15th birthday."]stringByAppendingFormat:@"3D glasses are located behind the informational stand to the far left.At this event the band Collective Soul performed."];
-    
+    NSString *labelC = [[@"Building C\n" stringByAppendingString:@"URL's Seats 500 people and serves about 1,800 people each day.  It is the location for the FYI (For Yahoos Information) meeting every Friday, Marissa rarely misses the meeting (only twice so far).\n"]stringByAppendingFormat:@"John Lennon Painting Painted with bare hands in 6 minutes by an artist at a Y! Year End Party, then purchased for charity by one of our founders, David Filo."];
     [self.rightLabelList addObject:labelC];
     
     NSString *labelDYKc = [@"Building C has Game Tables,Y!Mart (Lori the manager will let you know of the discounts - AMC movie tickets, Monterey Bar Aquarium, Universal Studios and much more) and Fitness Center.\n" stringByAppendingFormat:@"The gym is open 24/7, and in addition to the workout equipment offers massage, sauna and specialized classes. More than 250 Yahoos use the Fitness Center each day."];
     [self.downLabelList addObject:labelDYKc];
     
-    NSString *labelD = [[@"Building D\n" stringByAppendingString:@"The Wind Cube (Y! Campus Art, produced by Ned Kahn, an outside artist) - Bldg D Entrance.  As air currents pass through the cube, the 3-D structure of the wind is made visible. His intention was to create an artwork that will always be changing as it responds to the local environmental conditions.\n" ] stringByAppendingFormat:@"Yahoo!’s entire headquarters campus has been awarded LEED ® Gold certification under the US Green Building Council’s standards for Existing Buildings: Operations + Maintenance.  Yahoo! was further honored to receive the first LEED ® Gold designation ever given to a multi-building office campus under this standard. Show gold & green on doors when walking in."];
+    NSString *labelD = [@"Building D\n" stringByAppendingString:@"The Wind Cube (Y! Campus Art, produced by Ned Kahn, an outside artist) - Bldg D Entrance.  As air currents pass through the cube, the 3-D structure of the wind is made visible. His intention was to create an artwork that will always be changing as it responds to the local environmental conditions.\n" ];
 
     [self.rightLabelList addObject:labelD];
     
@@ -84,7 +83,6 @@
     self.selectedBuilding = 1;
     NSString *label = [@"Building A\n" stringByAppendingString:@"A2 – Design team for Yahoo! Homepage (editorial and engineering).\n Theme is News room. \n"];
     label = [label stringByAppendingString:@"Photos are loosely inspired by Yahoo! Trending Now and Yahoo! Slideshows. They represent a sampling of news events since the death of Jerry Garcia, which was the first news story Yahoo! linked to in 1995.\n"];
-    label = [label stringByAppendingString:@"The Editorial team, led by Jai Singh, opted for photos of the events/stories that aren’t too morbid.  I.e. flowers left at Kensington Place vs. the mangled Mercedes in Paris to represent Princess Diana’s death in 1997.\n"];
     self.rightLabelList = [[NSMutableArray alloc] init];
     self.downLabelList = [[NSMutableArray alloc] init];
     [self.rightLabelList addObject:@""];
@@ -185,34 +183,27 @@
     NSString *imageDirectory = @"BuildingPhotos/";
     NSString *imageName = @"_Building.jpg";
     imageName = [imageDirectory stringByAppendingString:[view.annotation.title stringByAppendingString:imageName]];
-    if( ([view.annotation coordinate].latitude == 37.416) && ([view.annotation coordinate].longitude ==-122.023961))
+    if([view.annotation.title isEqualToString:@"G"])
     {
-        self.rightLabel.text = self.rightLabelList[7];
-        self.dYKLabel.text = self.downLabelList[7];
+        self.dYKLabel.text = self.rightLabelList[7];
     }
-    else if( ([view.annotation coordinate].latitude == 37.415) && ([view.annotation coordinate].longitude ==-122.023961))
+    else if([view.annotation.title isEqualToString:@"F"])
     {
-        self.rightLabel.text = self.rightLabelList[6];
-        self.dYKLabel.text = self.downLabelList[6];
-    } else if( ([view.annotation coordinate].latitude == 37.416581) && ([view.annotation coordinate].longitude ==-122.0265))
+        self.dYKLabel.text = self.rightLabelList[6];
+    } else if([view.annotation.title isEqualToString:@"E"])
     {
-        self.rightLabel.text = self.rightLabelList[5];
-        self.dYKLabel.text = self.downLabelList[5];
-    } else if( ([view.annotation coordinate].latitude == 37.417599) && ([view.annotation coordinate].longitude ==-122.0260))
+        self.dYKLabel.text = self.rightLabelList[5];
+    } else if([view.annotation.title isEqualToString:@"D"])
     {
-        self.rightLabel.text = self.rightLabelList[4];
-        self.dYKLabel.text = self.downLabelList[4];
-    } else if( ([view.annotation coordinate].latitude == 37.417599) && ([view.annotation coordinate].longitude ==-122.0250))
+        self.dYKLabel.text = self.rightLabelList[4];
+    } else if([view.annotation.title isEqualToString:@"C"])
     {
-        self.rightLabel.text = self.rightLabelList[3];
-        self.dYKLabel.text = self.downLabelList[3];
-    } else if( ([view.annotation coordinate].latitude == 37.418599) && ([view.annotation coordinate].longitude ==-122.025959))
+        self.dYKLabel.text = self.rightLabelList[3];
+    } else if([view.annotation.title isEqualToString:@"B"])
     {
-        self.rightLabel.text = self.rightLabelList[2];
-        self.dYKLabel.text = self.downLabelList[2];
+        self.dYKLabel.text = self.rightLabelList[2];
     } else {
-        self.rightLabel.text = self.rightLabelList[1];
-        self.dYKLabel.text = self.downLabelList[1];
+        self.dYKLabel.text = self.rightLabelList[1];
     }
     UIImage *image = [UIImage imageNamed:imageName];
     [self.buildingImageView setImage:image];
