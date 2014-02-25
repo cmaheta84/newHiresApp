@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "PageContentViewController.h"
 
-@interface CampusViewController : UIViewController  <MKMapViewDelegate>
+@interface CampusViewController : UIViewController  <MKMapViewDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @end

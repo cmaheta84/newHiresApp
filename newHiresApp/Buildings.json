@@ -1,0 +1,100 @@
+{
+    "buildings": [
+                  {
+                  "id": "snv",
+                  "imageId": "campus",
+                  "name": "Sunnyvale Campus",
+                  "facts": [
+                            "7 Campus Buildings",
+                            "4 Unique Cafeterias",
+                            "Free On-Site Gym",
+                            "Bay Area Shuttle Access"
+                            ],
+                  "dyk": "Yahoo! started construction of the campus in 2000, and moved in June, 2001. The campus has 977,639 square feet which accommodates ~4,000 employees (FTE & Contract).There are approximately 13,000 employees (FTE) worldwide."
+                  },
+                  {
+                  "id": "snv_a",
+                  "imageId": "A_Building",
+                  "name": "Sunnyvale Building A",
+                  "facts": [
+                            "Yahoo! Homepage Team",
+                            "Newsroom Themed",
+                            "Fact 3",
+                            "Fact 4"
+                            ],
+                  "dyk": "Each floor of each building has a different theme. The second floor of Building A (A2) is Newsroom themed. The fourth floor of Building D (D4) is Casino themed."
+                  },
+                  {
+                  "id": "snv_b",
+                  "imageId": "B_Building",
+                  "name": "Sunnyvale Building B",
+                  "facts": [
+                            "Sports Studio",
+                            "Ergonimics Lab",
+                            "Fact 3",
+                            "Fact 4"
+                            ],
+                  "dyk": "The lawn and patio areas are used for a variety of events including Music on the Greens (kick-off to summer, Picnic), departmental parties and other employee events. The campus was designed by RMW, who also designed the buildings for e-Bay, Lucas Arts, and the NYSE Palo Alto building. Every building has art in front of it."
+                  },
+                  {
+                  "id": "snv_c",
+                  "imageId": "C_Building",
+                  "name": "Sunnyvale Building C",
+                  "facts": [
+                            "URL's Cafeteria",
+                            "Y!Mart Convenience Store",
+                            "Fitness Center",
+                            "3D Painting"
+                            ],
+                  "dyk": "URL's Seats 500 people and serves about 1,800 people each day. It is the location for the FYI (For Yahoos Information) meeting every Friday and Marissa rarely misses a meeting (only twice so far)."
+                  },
+                  {
+                  "id": "snv_d",
+                  "imageId": "D_Building",
+                  "name": "Sunnyvale Building D",
+                  "facts": [
+                            "Yahoo! Company Store",
+                            "Marissa Mayer's Office",
+                            "Mobile & Emerging Products",
+                            "Game Room"
+                            ],
+                  "dyk": "The Wind Cube (Y! Campus Art, produced by Ned Kahn, an outside artist) is located by the Bldg D Entrance.  As air currents pass through the cube, the 3-D structure of the wind is made visible. His intention was to create an artwork that will always be changing as it responds to the local environmental conditions."
+                  },
+                  {
+                  "id": "snv_E",
+                  "imageId": "E_Building",
+                  "name": "Sunnyvale Building E",
+                  "facts": [
+                            "Labrynth Doors Art",
+                            "Accessbility Labs",
+                            "Indian Cuisine",
+                            "Fact 4"
+                            ],
+                  "dyk": "When Jerry and David started compiling their web directory in early 1994, it was called Jerry and David's Guide to the World Wide Web. As the site became more popular, they decided it needed a shorter, catchier name. They agreed that the first two letters should be YA because the names of several software tools they had used as computer science students began with those letters."
+                  },
+                  {
+                  "id": "snv_f",
+                  "imageId": "f_Building",
+                  "name": "Sunnyvale Building F",
+                  "facts": [
+                            "Yahoo! Search Team",
+                            "Noodle Bar & Asian BBQ",
+                            "Fact 3",
+                            "Fact 4"
+                            ],
+                  "dyk": "Why purple? The rumor/funnier version is that David Filo is cheap and picked the cheapest paint color available to paint their first office, which was purple. The real reason is Jerry and David had a friend design the first Yahoo! logo for them and they chose purple, yellow and blue as the primary colors for it.  The blue didn’t last."
+                  },
+                  {
+                  "id": "snv_g",
+                  "imageId": "G_Building",
+                  "name": "Sunnyvale Building G",
+                  "facts": [
+                            "Yahoo! Web Search Team",
+                            "Mexican Cuisine",
+                            "Fact 3",
+                            "Fact 4"
+                            ],
+                  "dyk": "All Sunnyvale buildings have a coffee bar. Yahoos in Sunnyvale drink approximately 3,000 coffee drinks each day."
+                  }
+                  ]
+}

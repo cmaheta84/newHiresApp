@@ -9,19 +9,19 @@
 #import "CampusViewController.h"
 #import <MapKit/MKMapView.h>
 #import <MapKit/MKAnnotation.h>
+#import "BuildingItem.h"
 
 @interface CampusViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *rightLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *buildingImageView;
-@property (weak, nonatomic) IBOutlet UILabel *dYKLabel;
 @property (retain, nonatomic) IBOutlet MKMapView *mapView;
 @property (assign, nonatomic) NSInteger selectedBuilding;
-@property (strong, nonatomic) NSMutableArray *downLabelList;
-@property (strong, nonatomic) NSMutableArray *rightLabelList;
+@property (strong, nonatomic) NSMutableArray *buildings;
+@property (strong, nonatomic) NSMutableArray *markers;
 
-- (IBAction)onReset:(id)sender;
-- (IBAction)onZoomOut:(id)sender;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (atomic) NSUInteger pageIndex;
+
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view;
 
 @end
@@ -36,144 +36,50 @@
     return self;
 }
 
-- (void) fillUpData
-{
-    NSString *labelB = [[[[[@"Building B\n" stringByAppendingString:@"Sports Studio -- first floor\n" ] stringByAppendingFormat:@"One of our three studios.  The other two are in Santa Monica (Entertainment)  and New York (Finance)\n"]stringByAppendingFormat:@"Sports Talk Live (taped in this studio) airs every weeknight on Comcast SportsNet Bay Area.\n"] stringByAppendingFormat:@"The posters in the hallways are shows new & old in SM, NY and SNV.June 4th we hosted Vernon Davis (49ers player) on campus for a live show.\n"] stringByAppendingFormat:@"B3 is where the Ergo Lab is located."];
+- (void) setUp {
+    self.buildings = [[NSMutableArray alloc] init];
     
-    [self.rightLabelList addObject:labelB];
+    //Parse JSON and store an array of TimelineItems
+    NSData *timelineData = [[NSData alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Buildings" withExtension:@"json"]];
+    NSError *error;
+    NSDictionary *timelineDict = [NSJSONSerialization
+                                  JSONObjectWithData:timelineData
+                                  options:NSJSONReadingMutableContainers
+                                  error:&error];
+    self.buildings = [NSMutableArray array];
+    NSArray *array = [timelineDict objectForKey:@"buildings"];
+    // Iterate through the array of dictionaries
+    for(NSDictionary *dict in array) {
+        BuildingItem *buildingItem = [[BuildingItem alloc] initWithJSONDictionary:dict];
+        [self.buildings addObject:buildingItem];
+    }
     
-    NSString *labelDYKb = @"The lawn and patio areas are used for a variety of events including Music on the Greens (kick-off to summer, Picnic), departmental parties and other employee events.The campus was designed by RMW, who also designed the buildings for e-Bay, Lucas Arts, and the NYSE Palo Alto building.Every building has art in front of it.";
-    [self.downLabelList addObject:labelDYKb];
-    
-    NSString *labelC = [[[[@"Building C\n" stringByAppendingString:@"URL's Seats 500 people and serves about 1,800 people each day.  It is the location for the FYI (For Yahoos Information) meeting every Friday, Marissa rarely misses the meeting (only twice so far).\n"]stringByAppendingFormat:@"John Lennon Painting Painted with bare hands in 6 minutes by an artist at a Y! Year End Party, then purchased for charity by one of our founders, David Filo.\n"] stringByAppendingFormat:@"3D painting between URL’s and the game room/coffee bar.  Created live on campus by 3 artists in honor of Yahoo!’s 15th birthday."]stringByAppendingFormat:@"3D glasses are located behind the informational stand to the far left.At this event the band Collective Soul performed."];
-    
-    [self.rightLabelList addObject:labelC];
-    
-    NSString *labelDYKc = [@"Building C has Game Tables,Y!Mart (Lori the manager will let you know of the discounts - AMC movie tickets, Monterey Bar Aquarium, Universal Studios and much more) and Fitness Center.\n" stringByAppendingFormat:@"The gym is open 24/7, and in addition to the workout equipment offers massage, sauna and specialized classes. More than 250 Yahoos use the Fitness Center each day."];
-    [self.downLabelList addObject:labelDYKc];
-    
-    NSString *labelD = [[@"Building D\n" stringByAppendingString:@"The Wind Cube (Y! Campus Art, produced by Ned Kahn, an outside artist) - Bldg D Entrance.  As air currents pass through the cube, the 3-D structure of the wind is made visible. His intention was to create an artwork that will always be changing as it responds to the local environmental conditions.\n" ] stringByAppendingFormat:@"Yahoo!’s entire headquarters campus has been awarded LEED ® Gold certification under the US Green Building Council’s standards for Existing Buildings: Operations + Maintenance.  Yahoo! was further honored to receive the first LEED ® Gold designation ever given to a multi-building office campus under this standard. Show gold & green on doors when walking in."];
-
-    [self.rightLabelList addObject:labelD];
-    
-    NSString *labelDYKd = @"Yahoo! Company Store (D1 Lobby) - Bring your guests by the store to get their hands on Yahoo! merchandise.You’ll also find the ‘never ending’ gumball machine out in front of the store (one of Marissa’s guilty pleasures).Behind building C we have basketball, volleyball, and bocce ball courts. 9/11 Memorial & Gretchen's Garden Rock - Behind the volleyball court";
-    [self.downLabelList addObject:labelDYKd];
-    
-    NSString *labelE = [@"Building E\n"stringByAppendingString:@"Labyrinth Doors (Yahoo! Campus Art) - Bldg E Front Lawn Five portals have been arranged as a labyrinth without path or boundary.E3 is where the Accessibility Lab is located."];
-    [self.rightLabelList addObject:labelE];
-    
-    NSString *labelDYKe = @"When Jerry and David started compiling their web directory in early 1994, it was called Jerry and David's Guide to the World Wide Web. As the site became more popular, they decided it needed a shorter, catchier name. They agreed that the first two letters should be YA because the names of several software tools they had used as computer science students began with those letters.";
-    [self.downLabelList addObject:labelDYKe];
-    
-    NSString *labelF = [@"Building F\n" stringByAppendingString:@"Yahoo's Search team is located in Building F. The cafeteria at F has chinese noodeles and chinese items in menu each day. So, if you are fan of chinese food, try F cafeteria."];
-    [self.rightLabelList addObject:labelF];
-    
-    NSString *labelDYKf = [[@"Why purple?\n" stringByAppendingFormat:@"The rumor/funnier version is that David Filo is cheap and picked the cheapest paint color available to paint their first office, which was purple.\n"] stringByAppendingFormat:@"The real reason is Jerry and David had a friend design the first Yahoo! logo for them and they chose purple, yellow and blue as the primary colors for it.  The blue didn’t last."];
-    [self.downLabelList addObject:labelDYKf];
-    
-    NSString *labelG = [@"Building G\n"stringByAppendingString:@"Yahoo's Web Search team is located in building G. The cafeteria of G has maxican menu each day. You will love to try maxican burrito at build G."];
-    [self.rightLabelList addObject:labelG];
-    
-    NSString *labelDYKg = @"Yahoo! holds 1,500 patents and has 2,500 pending. Each floor of each building has a different \"theme\" for conference room names.All Sunnyvale buildings have a coffee bar. Yahoos in Sunnyvale drink approximately 3,000 coffee drinks each day.";
-    [self.downLabelList addObject:labelDYKg];
-}
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor colorWithRed: 75.0/255.0f green:0.0/255.0f blue:130.0/255.0f alpha:1.0];
-    self.selectedBuilding = 1;
-    NSString *label = [@"Building A\n" stringByAppendingString:@"A2 – Design team for Yahoo! Homepage (editorial and engineering).\n Theme is News room. \n"];
-    label = [label stringByAppendingString:@"Photos are loosely inspired by Yahoo! Trending Now and Yahoo! Slideshows. They represent a sampling of news events since the death of Jerry Garcia, which was the first news story Yahoo! linked to in 1995.\n"];
-    label = [label stringByAppendingString:@"The Editorial team, led by Jai Singh, opted for photos of the events/stories that aren’t too morbid.  I.e. flowers left at Kensington Place vs. the mangled Mercedes in Paris to represent Princess Diana’s death in 1997.\n"];
-    self.rightLabelList = [[NSMutableArray alloc] init];
-    self.downLabelList = [[NSMutableArray alloc] init];
-    [self.rightLabelList addObject:@""];
-    [self.rightLabelList addObject:label];
-    
-    NSString *labelDYK = @"Yahoo! started construction of the campus in 2000, and moved in June, 2001. The campus has 977,639 square feet which accommodates ~4,000 employees (FTE & Contract).There are approximately 13,000 employees (FTE) worldwide.";
-    [self.downLabelList addObject:@""];
-    [self.downLabelList addObject:labelDYK];
-    [self fillUpData];
-    
+    // Load first building
     UIImage *imageBuild = [UIImage imageNamed:@"BuildingPhotos/Campus.jpg"];
     [self.buildingImageView setImage:imageBuild];
-    self.dYKLabel.text = labelDYK;
-    //self.dYKLabel.font = [UIFont boldSystemFontOfSize:14];
-    //self.dYKLabel.textColor = [UIColor colorWithRed: 147.0/255.0f green:112.0/255.0f blue:219.0/255.0f alpha:1.0];
-    self.rightLabel.text = label;
-    //self.rightLabel.font = [UIFont boldSystemFontOfSize:18];
-    //self.rightLabel.textColor = [UIColor colorWithRed: 147.0/255.0f green:112.0/255.0f blue:219.0/255.0f alpha:1.0];
+}
+
+- (void)viewDidLoad {
+    [self setUp];
+    [self loadMap];
     
-    _mapView.showsUserLocation = YES;
-    _mapView.zoomEnabled = YES;
-    self.mapView.delegate = self;
-    MKCoordinateRegion region;
-    region.center.latitude = 37.4169;
-    region.center.longitude = -122.024459;
-    region.span.latitudeDelta = 0.005;
-    region.span.longitudeDelta = 0.005;
-    [_mapView setRegion:region animated:YES];
+    [super viewDidLoad];
     
-    MKCoordinateRegion region1;
-    region1.center.latitude = 37.418499;
-    region1.center.longitude = -122.024459;
-    MKPointAnnotation *ann1 = [[MKPointAnnotation alloc] init];
-    ann1.coordinate = region1.center;
-    ann1.title = @"C";
-    [_mapView addAnnotation:ann1];
-	
-    MKCoordinateRegion region2;
-    region2.center.latitude = 37.418499;
-    region2.center.longitude = -122.025659;
-    MKPointAnnotation *ann2 = [[MKPointAnnotation alloc] init];
-    ann2.coordinate = region2.center;
-    ann2.title = @"B";
-    [_mapView addAnnotation:ann2];
+    // Create page view controller
+    self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+    self.pageViewController.dataSource = self;
+    self.pageViewController.delegate = self;
     
-    MKCoordinateRegion region3;
-    region3.center.latitude = 37.417499;
-    region3.center.longitude = -122.0250;
-    MKPointAnnotation *ann3 = [[MKPointAnnotation alloc] init];
-    ann3.coordinate = region3.center;
-    ann3.title = @"D";
-    [_mapView addAnnotation:ann3];
+    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers = @[startingViewController];
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
-    MKCoordinateRegion region4;
-    region4.center.latitude = 37.417499;
-    region4.center.longitude = -122.0260;
-    MKPointAnnotation *ann4 = [[MKPointAnnotation alloc] init];
-    ann4.coordinate = region4.center;
-    ann4.title = @"A";
-    [_mapView addAnnotation:ann4];
+    // Change the size of page view controller
+    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60);
     
-    MKCoordinateRegion region5;
-    region5.center.latitude = 37.416;
-    region5.center.longitude = -122.0255;
-    MKPointAnnotation *ann5 = [[MKPointAnnotation alloc] init];
-    ann5.coordinate = region5.center;
-    ann5.title = @"E";
-    [_mapView addAnnotation:ann5];
-    
-    /*F and G*/
-    MKCoordinateRegion region6;
-    region6.center.latitude = 37.4147;
-    region6.center.longitude = -122.0242;
-    MKPointAnnotation *ann6 = [[MKPointAnnotation alloc] init];
-    ann6.coordinate = region6.center;
-    ann6.title = @"G";
-    [_mapView addAnnotation:ann6];
-    
-    MKCoordinateRegion region7;
-    region7.center.latitude = 37.4155;
-    region7.center.longitude = -122.023961;
-    MKPointAnnotation *ann7 = [[MKPointAnnotation alloc] init];
-    ann7.coordinate = region7.center;
-    ann7.title = @"F";
-    [_mapView addAnnotation:ann7];
-    [_mapView selectAnnotation:nil animated:NO];
-    // Do any additional setup after loading the view.
-    
-    
+    [self addChildViewController:_pageViewController];
+    [self.view insertSubview:_pageViewController.view belowSubview:self.mapView];
+    [self.pageViewController didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,38 +87,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+# pragma mark MapView Methods
+
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     NSString *imageDirectory = @"BuildingPhotos/";
     NSString *imageName = @"_Building.jpg";
     imageName = [imageDirectory stringByAppendingString:[view.annotation.title stringByAppendingString:imageName]];
-    if( ([view.annotation coordinate].latitude == 37.416) && ([view.annotation coordinate].longitude ==-122.023961))
-    {
-        self.rightLabel.text = self.rightLabelList[7];
-        self.dYKLabel.text = self.downLabelList[7];
-    }
-    else if( ([view.annotation coordinate].latitude == 37.415) && ([view.annotation coordinate].longitude ==-122.023961))
-    {
-        self.rightLabel.text = self.rightLabelList[6];
-        self.dYKLabel.text = self.downLabelList[6];
-    } else if( ([view.annotation coordinate].latitude == 37.416581) && ([view.annotation coordinate].longitude ==-122.0265))
-    {
-        self.rightLabel.text = self.rightLabelList[5];
-        self.dYKLabel.text = self.downLabelList[5];
-    } else if( ([view.annotation coordinate].latitude == 37.417599) && ([view.annotation coordinate].longitude ==-122.0260))
-    {
-        self.rightLabel.text = self.rightLabelList[4];
-        self.dYKLabel.text = self.downLabelList[4];
-    } else if( ([view.annotation coordinate].latitude == 37.417599) && ([view.annotation coordinate].longitude ==-122.0250))
-    {
-        self.rightLabel.text = self.rightLabelList[3];
-        self.dYKLabel.text = self.downLabelList[3];
-    } else if( ([view.annotation coordinate].latitude == 37.418599) && ([view.annotation coordinate].longitude ==-122.025959))
-    {
-        self.rightLabel.text = self.rightLabelList[2];
-        self.dYKLabel.text = self.downLabelList[2];
+    if([view.annotation.title isEqualToString:@"A"]) {
+        // TODO: Navigate to the right page corresponding to the right building
+    } else if([view.annotation.title isEqualToString:@"B"]) {
+
+    } else if([view.annotation.title isEqualToString:@"C"]) {
+
+    } else if([view.annotation.title isEqualToString:@"D"]) {
+
+    } else if([view.annotation.title isEqualToString:@"E"]) {
+        
+    } else if([view.annotation.title isEqualToString:@"F"]) {
+
+    } else if([view.annotation.title isEqualToString:@"G"]) {
+        
     } else {
-        self.rightLabel.text = self.rightLabelList[1];
-        self.dYKLabel.text = self.downLabelList[1];
+        NSLog(@"ERROR: Invalid Building");
     }
     UIImage *image = [UIImage imageNamed:imageName];
     [self.buildingImageView setImage:image];
@@ -220,9 +117,6 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    //NSLog(@"%f",[annotation coordinate].latitude);
-    //NSLog(@"%f",[annotation coordinate].longitude);
-    //NSLog(@"%@",annotation.title);
     MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"mapPin"];
     if (!aView) {
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
@@ -236,12 +130,170 @@
     return aView;
 }
 
-
-
-- (IBAction)onReset:(id)sender {
-}
-
-- (IBAction)onZoomOut:(id)sender {
+- (void)loadMap {
+    self.mapView.delegate = self;
+    self.markers = [NSMutableArray array];
     
+    MKCoordinateRegion zoomRegion;
+    zoomRegion.center.latitude = 37.4169;
+    zoomRegion.center.longitude = -122.024509;
+    zoomRegion.span.latitudeDelta = 0.005;
+    zoomRegion.span.longitudeDelta = 0.005;
+    [_mapView setRegion:zoomRegion animated:YES];
+    
+    MKCoordinateRegion regionA;
+    regionA.center.latitude = 37.417499;
+    regionA.center.longitude = -122.0260;
+    MKPointAnnotation *ann4 = [[MKPointAnnotation alloc] init];
+    ann4.coordinate = regionA.center;
+    ann4.title = @"A";
+    [_mapView addAnnotation:ann4];
+    [self.markers addObject:ann4];
+    
+    MKCoordinateRegion regionB;
+    regionB.center.latitude = 37.418499;
+    regionB.center.longitude = -122.025659;
+    MKPointAnnotation *ann2 = [[MKPointAnnotation alloc] init];
+    ann2.coordinate = regionB.center;
+    ann2.title = @"B";
+    [_mapView addAnnotation:ann2];
+    [self.markers addObject:ann2];
+    
+    MKCoordinateRegion regionC;
+    regionC.center.latitude = 37.418499;
+    regionC.center.longitude = -122.024459;
+    MKPointAnnotation *ann1 = [[MKPointAnnotation alloc] init];
+    ann1.coordinate = regionC.center;
+    ann1.title = @"C";
+    [_mapView addAnnotation:ann1];
+    [self.markers addObject:ann1];
+	
+    MKCoordinateRegion regionD;
+    regionD.center.latitude = 37.417499;
+    regionD.center.longitude = -122.0250;
+    MKPointAnnotation *ann3 = [[MKPointAnnotation alloc] init];
+    ann3.coordinate = regionD.center;
+    ann3.title = @"D";
+    [_mapView addAnnotation:ann3];
+    [self.markers addObject:ann3];
+    
+    MKCoordinateRegion regionE;
+    regionE.center.latitude = 37.416;
+    regionE.center.longitude = -122.0255;
+    MKPointAnnotation *ann5 = [[MKPointAnnotation alloc] init];
+    ann5.coordinate = regionE.center;
+    ann5.title = @"E";
+    [_mapView addAnnotation:ann5];
+    [self.markers addObject:ann5];
+    
+    MKCoordinateRegion regionF;
+    regionF.center.latitude = 37.4155;
+    regionF.center.longitude = -122.023961;
+    MKPointAnnotation *ann7 = [[MKPointAnnotation alloc] init];
+    ann7.coordinate = regionF.center;
+    ann7.title = @"F";
+    [_mapView addAnnotation:ann7];
+    [self.markers addObject:ann7];
+    
+    MKCoordinateRegion regionG;
+    regionG.center.latitude = 37.4147;
+    regionG.center.longitude = -122.0242;
+    MKPointAnnotation *ann6 = [[MKPointAnnotation alloc] init];
+    ann6.coordinate = regionG.center;
+    ann6.title = @"G";
+    [_mapView addAnnotation:ann6];
+    [self.markers addObject:ann6];
 }
+
+#pragma mark - PageViewController Methods
+
+- (PageContentViewController *)viewControllerAtIndex:(NSUInteger)index
+{
+    if (([self.buildings count] == 0) || (index >= [self.buildings count])) {
+        return nil;
+    }
+    
+    self.pageIndex = index; //NOTE: THIS IS NOT ALWAYS CORRECT! FIX THIS ASAP
+    
+    // Create a new view controller and pass suitable data.
+    PageContentViewController *contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContentViewController"];
+    contentViewController.factTexts = [NSMutableArray array];
+    
+    BuildingItem *buildling = self.buildings[index];
+    contentViewController.nameText = buildling.name;
+    contentViewController.factTexts[0] = buildling.facts[0];
+    contentViewController.factTexts[1] = buildling.facts[1];
+    contentViewController.factTexts[2] = buildling.facts[2];
+    contentViewController.factTexts[3] = buildling.facts[3];
+    contentViewController.dykText = buildling.dyk;
+    
+    contentViewController.pageIndex = index;
+    
+    return contentViewController;
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    NSUInteger index = ((PageContentViewController*) viewController).pageIndex;
+
+    if ((index == 0) || (index == NSNotFound)) {
+        return nil;
+    }
+    
+    index--;
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    NSUInteger index = ((PageContentViewController*) viewController).pageIndex;
+    
+    if (index == NSNotFound) {
+        return nil;
+    }
+    
+    index++;
+    if (index >= [self.buildings count]) {
+        return nil;
+    }
+    return [self viewControllerAtIndex:index];
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return [self.buildings count];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
+{
+    return 0;
+}
+
+- (void)pageViewController:(UIPageViewController *)pvc didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    // If the page did not turn
+    if (!completed)
+    {
+        // You do nothing because whatever page you thought
+        // the book was on before the gesture started is still the correct page
+        return;
+    }
+
+    if (self.pageIndex >= self.buildings.count){
+        return;
+    }
+    BuildingItem *buildling = self.buildings[self.pageIndex];
+    NSString *imageName = [[@"BuildingPhotos/" stringByAppendingString:buildling.imageId] stringByAppendingString:@".jpg"];
+    
+    // Transition to new image with a smooth fade animation
+    UIImage * toImage = [UIImage imageNamed:imageName];
+    [UIView transitionWithView:self.buildingImageView
+                      duration:1.0f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.buildingImageView.image = toImage;
+                    } completion:nil];
+
+}
+
 @end

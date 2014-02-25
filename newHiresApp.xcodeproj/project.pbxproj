@@ -60,6 +60,9 @@
 		925FE0FB1892188D002C11D3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0FA1892188D002C11D3 /* HomeViewController.m */; };
 		92AD339E18BB30110097BEF4 /* History.json in Resources */ = {isa = PBXBuildFile; fileRef = 92AD339D18BB30110097BEF4 /* History.json */; };
 		92AD33A018BB40470097BEF4 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92AD339F18BB40470097BEF4 /* wallpaper.jpg */; };
+		92AD33A318BBF5520097BEF4 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AD33A218BBF5520097BEF4 /* PageContentViewController.m */; };
+		92AD33A518BC2ED60097BEF4 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 92AD33A418BC2ED60097BEF4 /* Buildings.json */; };
+		92AD33A818BC2F030097BEF4 /* BuildingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AD33A718BC2F030097BEF4 /* BuildingItem.m */; };
 		92B90EBA18BABC8500F1962A /* BuildingPhotos in Resources */ = {isa = PBXBuildFile; fileRef = 92B90EB818BABC8500F1962A /* BuildingPhotos */; };
 		92B90EBB18BABC8500F1962A /* CampusPhotos in Resources */ = {isa = PBXBuildFile; fileRef = 92B90EB918BABC8500F1962A /* CampusPhotos */; };
 /* End PBXBuildFile section */
@@ -86,7 +89,7 @@
 		4C7D79261891CD7A007F1692 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C7D79281891CD7A007F1692 /* newHiresApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "newHiresApp-Prefix.pch"; sourceTree = "<group>"; };
 		4C7D79291891CD7A007F1692 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4C7D792A1891CD7A007F1692 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C7D792A1891CD7A007F1692 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		4C7D79301891CD7A007F1692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C7D79351891CD7A007F1692 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C7D793B1891CD7A007F1692 /* newHiresAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newHiresAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +148,11 @@
 		925FE0FA1892188D002C11D3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		92AD339D18BB30110097BEF4 /* History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = History.json; sourceTree = "<group>"; };
 		92AD339F18BB40470097BEF4 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
+		92AD33A118BBF5520097BEF4 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		92AD33A218BBF5520097BEF4 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		92AD33A418BC2ED60097BEF4 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
+		92AD33A618BC2F030097BEF4 /* BuildingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingItem.h; sourceTree = "<group>"; };
+		92AD33A718BC2F030097BEF4 /* BuildingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingItem.m; sourceTree = "<group>"; };
 		92B90EB818BABC8500F1962A /* BuildingPhotos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BuildingPhotos; sourceTree = "<group>"; };
 		92B90EB918BABC8500F1962A /* CampusPhotos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CampusPhotos; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,7 +236,6 @@
 			children = (
 				920B609F18B955A000BE006C /* iCarousel */,
 				4C7D79291891CD7A007F1692 /* AppDelegate.h */,
-				4C7D792A1891CD7A007F1692 /* AppDelegate.m */,
 				4C7D792F1891CD7A007F1692 /* Main.storyboard */,
 				925FE0EA189213F3002C11D3 /* TabBarController.h */,
 				925FE0EB189213F3002C11D3 /* TabBarController.m */,
@@ -247,6 +254,7 @@
 		4C7D79211891CD7A007F1692 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92AD33A418BC2ED60097BEF4 /* Buildings.json */,
 				92AD339D18BB30110097BEF4 /* History.json */,
 				92B90EB818BABC8500F1962A /* BuildingPhotos */,
 				92B90EB918BABC8500F1962A /* CampusPhotos */,
@@ -332,6 +340,7 @@
 			children = (
 				920B60A018B955A000BE006C /* iCarousel.h */,
 				920B60A118B955A000BE006C /* iCarousel.m */,
+				4C7D792A1891CD7A007F1692 /* AppDelegate.m */,
 			);
 			path = iCarousel;
 			sourceTree = "<group>";
@@ -341,6 +350,10 @@
 			children = (
 				925FE0F018921479002C11D3 /* CampusViewController.h */,
 				925FE0F118921479002C11D3 /* CampusViewController.m */,
+				92AD33A118BBF5520097BEF4 /* PageContentViewController.h */,
+				92AD33A218BBF5520097BEF4 /* PageContentViewController.m */,
+				92AD33A618BC2F030097BEF4 /* BuildingItem.h */,
+				92AD33A718BC2F030097BEF4 /* BuildingItem.m */,
 			);
 			name = Campus;
 			sourceTree = "<group>";
@@ -451,6 +464,7 @@
 				4CC93EC7189C384A00ACE18A /* Lime.jpg in Resources */,
 				4C7D79311891CD7A007F1692 /* Main.storyboard in Resources */,
 				92B90EBA18BABC8500F1962A /* BuildingPhotos in Resources */,
+				92AD33A518BC2ED60097BEF4 /* Buildings.json in Resources */,
 				4CC93EC2189C384A00ACE18A /* Crowd.jpg in Resources */,
 				4C6AA74A18A9A9C100287E9C /* zoomOut.jpeg in Resources */,
 				4C7D79361891CD7A007F1692 /* Images.xcassets in Resources */,
@@ -493,6 +507,8 @@
 				925FE0F218921479002C11D3 /* CampusViewController.m in Sources */,
 				925FE0FB1892188D002C11D3 /* HomeViewController.m in Sources */,
 				4C7D792B1891CD7A007F1692 /* AppDelegate.m in Sources */,
+				92AD33A818BC2F030097BEF4 /* BuildingItem.m in Sources */,
+				92AD33A318BBF5520097BEF4 /* PageContentViewController.m in Sources */,
 				4CC93ED6189C386200ACE18A /* MBProgressHUD.m in Sources */,
 				4C7D79271891CD7A007F1692 /* main.m in Sources */,
 				925FE0E618921341002C11D3 /* SocialViewController.m in Sources */,
