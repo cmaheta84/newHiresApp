@@ -192,6 +192,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5w6-QK-Mj7">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.3294117647" green="0.0" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <connections>
                                     <outlet property="dataSource" destination="gyd-Ob-gqV" id="6XQ-rr-7jD"/>
@@ -225,16 +230,49 @@
                     <view key="view" contentMode="scaleToFill" id="RNO-kX-fpv">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWu-kv-ZQg">
+                                <rect key="frame" x="25" y="378" width="478" height="305"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <webView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xd7-L9-Szh">
+                                <rect key="frame" x="25" y="50" width="478" height="305"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <webView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOK-pF-G2I">
+                                <rect key="frame" x="526" y="50" width="478" height="305"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <webView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2CN-vQ-hYk">
+                                <rect key="frame" x="526" y="378" width="478" height="305"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjk-oK-qa8">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.3294117647" green="0.0" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Videos" image="video" id="tfc-CH-OYN"/>
+                    <connections>
+                        <outlet property="videoView1" destination="Xd7-L9-Szh" id="jmp-SR-Tmc"/>
+                        <outlet property="videoView2" destination="uOK-pF-G2I" id="S3K-4p-AAM"/>
+                        <outlet property="videoView3" destination="MWu-kv-ZQg" id="6b4-zA-xJ2"/>
+                        <outlet property="videoView4" destination="2CN-vQ-hYk" id="C3Z-9d-QKx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhn-Qc-mQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="1477"/>
+            <point key="canvasLocation" x="2034" y="1479"/>
         </scene>
-        <!--View Controller - Photos-->
+        <!--View Controller - Y! Book-->
         <scene sceneID="ORg-Jd-l6F">
             <objects>
                 <viewController id="e9K-bu-HhF" customClass="ViewController" sceneMemberID="viewController">
@@ -247,20 +285,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-0l-4Z9">
-                                <rect key="frame" x="-38" y="42" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="63" width="1024" height="657"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="csS-i3-ZOF">
+                    <navigationItem key="navigationItem" title="Y! Book" id="csS-i3-ZOF">
                         <barButtonItem key="leftBarButtonItem" systemItem="camera" id="2pe-mJ-QGx">
+                            <color key="tintColor" red="0.3294117647" green="0.0" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cameraButtonTapped:" destination="e9K-bu-HhF" id="bPU-vc-aJk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="aOs-oE-hsG">
+                            <color key="tintColor" red="0.3294117647" green="0.0" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="refresh:" destination="e9K-bu-HhF" id="FpP-cI-8kC"/>
                             </connections>
@@ -271,14 +311,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bma-lx-rCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Fqp-WC-fOV">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.3294117647" green="0.0" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="3295" y="513"/>
+            <point key="canvasLocation" x="3295" y="507"/>
         </scene>
-        <!--Navigation Controller - Guestbook-->
+        <!--Navigation Controller - Y! Book-->
         <scene sceneID="Mt1-8w-5lr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTI-24-E9T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Guestbook" image="social" id="OWY-Au-9VD"/>
+                    <tabBarItem key="tabBarItem" title="Y! Book" image="social" id="OWY-Au-9VD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vr1-tr-WXe">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>

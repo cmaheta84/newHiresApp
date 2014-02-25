@@ -20,7 +20,8 @@
 @property (strong, nonatomic) NSMutableArray *markers;
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (atomic) NSUInteger pageIndex;
+@property (nonatomic) NSUInteger pageIndex;
+@property (nonatomic) NSUInteger lastPageIndex;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view;
 
@@ -57,6 +58,8 @@
     // Load first building
     UIImage *imageBuild = [UIImage imageNamed:@"BuildingPhotos/Campus.jpg"];
     [self.buildingImageView setImage:imageBuild];
+    
+    self.lastPageIndex = 0;
 }
 
 - (void)viewDidLoad {
@@ -91,29 +94,38 @@
 # pragma mark MapView Methods
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
     NSString *imageDirectory = @"BuildingPhotos/";
     NSString *imageName = @"_Building.jpg";
+    NSUInteger index = 0;
     imageName = [imageDirectory stringByAppendingString:[view.annotation.title stringByAppendingString:imageName]];
     if([view.annotation.title isEqualToString:@"A"]) {
-        // TODO: Navigate to the right page corresponding to the right building
+        index = 1;
     } else if([view.annotation.title isEqualToString:@"B"]) {
-
+        index = 2;
     } else if([view.annotation.title isEqualToString:@"C"]) {
-
+        index = 3;
     } else if([view.annotation.title isEqualToString:@"D"]) {
-
+        index = 4;
     } else if([view.annotation.title isEqualToString:@"E"]) {
-        
+        index = 5;
     } else if([view.annotation.title isEqualToString:@"F"]) {
-
+        index = 6;
     } else if([view.annotation.title isEqualToString:@"G"]) {
-        
+        index = 7;
     } else {
         NSLog(@"ERROR: Invalid Building");
     }
-    UIImage *image = [UIImage imageNamed:imageName];
-    [self.buildingImageView setImage:image];
-    [self.view reloadInputViews];
+
+    PageContentViewController *startingViewController = [self viewControllerAtIndex:index];
+    NSArray *viewControllers = @[startingViewController];
+    if (self.pageIndex < self.lastPageIndex) {
+        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+    } else {
+        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    }
+    self.lastPageIndex = self.pageIndex;
+    [self updateBackgroundImage:self.pageIndex];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -282,6 +294,10 @@
     if (self.pageIndex >= self.buildings.count){
         return;
     }
+    [self updateBackgroundImage:index];
+}
+
+- (void)updateBackgroundImage:(NSUInteger)index {
     BuildingItem *buildling = self.buildings[self.pageIndex];
     NSString *imageName = [[@"BuildingPhotos/" stringByAppendingString:buildling.imageId] stringByAppendingString:@".jpg"];
     
@@ -293,7 +309,6 @@
                     animations:^{
                         self.buildingImageView.image = toImage;
                     } completion:nil];
-
 }
 
 @end
