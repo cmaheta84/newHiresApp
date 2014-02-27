@@ -7,7 +7,8 @@
 //
 
 #import "SocialDetailsViewController.h"
-#import "ViewController.h"
+#import "SocialViewController.h"
+#import "T1Autograph.h"
 
 @interface SocialDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -16,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *gpText;
 @property (weak, nonatomic) IBOutlet UITextField *deptText;
 - (IBAction)onSubmit:(id)sender;
+
+@property (strong) T1Autograph *autograph;
+@property (strong) T1Autograph *autographModal;
 
 @end
 
@@ -36,8 +40,8 @@ MBProgressHUD *refreshHUD;
 {
     [super viewDidLoad];
     self.imageView.image = [UIImage imageWithData:self.imagedata];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(onSubmit:)];
-    // Do any additional setup after loading the view from its nib.
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(onSubmit:)];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +52,21 @@ MBProgressHUD *refreshHUD;
 
 
 - (IBAction)onSubmit:(id)sender {
-    ViewController *VC = [[ViewController alloc] init];
+    
+    self.autographModal = [T1Autograph autographWithDelegate:self modalDisplayString:@"Sign Below:"];
+	
+	// Show modal view without a message above the signature line
+	//	self.autographModal = [T1Autograph autographWithDelegate:self modalDisplayString:nil];
+	
+	// Remove the watermark
+	[self.autographModal setLicenseCode:@"4fabb271f7d93f07346bd02cec7a1ebe10ab7bec"];
+	
+	// any optional configuration done here
+	[self.autographModal setShowDate:YES];
+	[self.autographModal setStrokeColor:[UIColor lightGrayColor]];
+    
+    /*
+    SocialViewController *VC = [[SocialViewController alloc] init];
     VC.personName = self.nameText.text;
     VC.personRole = self.roleText.text;
     VC.personDept = self.deptText.text;
@@ -126,5 +144,12 @@ MBProgressHUD *refreshHUD;
         // Update your progress spinner here. percentDone will be between 0 and 100.
         HUD.progress = (float)percentDone/100;
     }];
+     */
 }
+
+- (void)autograph:(T1Autograph *)autograph didCompleteWithSignature:(T1Signature *)signature {
+    // HACK: Close self
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

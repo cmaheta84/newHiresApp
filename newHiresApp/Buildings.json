@@ -19,8 +19,8 @@
                   "facts": [
                             "Yahoo! Homepage Team",
                             "Newsroom Themed",
-                            "Fact 3",
-                            "Fact 4"
+                            "Is a Building",
+                            "Has Four Floors"
                             ],
                   "dyk": "Each floor of each building has a different theme. The second floor of Building A (A2) is Newsroom themed. The fourth floor of Building D (D4) is Casino themed."
                   },
@@ -31,8 +31,8 @@
                   "facts": [
                             "Sports Studio",
                             "Ergonimics Lab",
-                            "Fact 3",
-                            "Fact 4"
+                            "Is a Building",
+                            "Has Four Floors"
                             ],
                   "dyk": "The lawn and patio areas are used for a variety of events including Music on the Greens (kick-off to summer, Picnic), departmental parties and other employee events. The campus was designed by RMW, who also designed the buildings for e-Bay, Lucas Arts, and the NYSE Palo Alto building. Every building has art in front of it."
                   },
@@ -68,7 +68,7 @@
                             "Labrynth Doors Art",
                             "Accessbility Labs",
                             "Indian Cuisine",
-                            "Fact 4"
+                            "Is a Building"
                             ],
                   "dyk": "When Jerry and David started compiling their web directory in early 1994, it was called Jerry and David's Guide to the World Wide Web. As the site became more popular, they decided it needed a shorter, catchier name. They agreed that the first two letters should be YA because the names of several software tools they had used as computer science students began with those letters."
                   },
@@ -79,8 +79,8 @@
                   "facts": [
                             "Yahoo! Search Team",
                             "Noodle Bar & Asian BBQ",
-                            "Fact 3",
-                            "Fact 4"
+                            "Is a Building",
+                            "Has Four Floors"
                             ],
                   "dyk": "Why purple? The rumor/funnier version is that David Filo is cheap and picked the cheapest paint color available to paint their first office, which was purple. The real reason is Jerry and David had a friend design the first Yahoo! logo for them and they chose purple, yellow and blue as the primary colors for it.  The blue didn’t last."
                   },
@@ -91,8 +91,8 @@
                   "facts": [
                             "Yahoo! Web Search Team",
                             "Mexican Cuisine",
-                            "Fact 3",
-                            "Fact 4"
+                            "Is a Building",
+                            "Has Four Floors"
                             ],
                   "dyk": "All Sunnyvale buildings have a coffee bar. Yahoos in Sunnyvale drink approximately 3,000 coffee drinks each day."
                   }
