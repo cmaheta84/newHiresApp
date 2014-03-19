@@ -47,13 +47,14 @@
 		4CC93EE8189C394C00ACE18A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC93EE7189C394C00ACE18A /* QuartzCore.framework */; };
 		4CC93EEA189C395600ACE18A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC93EE9189C395600ACE18A /* Security.framework */; };
 		4CC93EEC189C396300ACE18A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC93EEB189C396300ACE18A /* SystemConfiguration.framework */; };
+		4CCB32B718DA131A000D9EF6 /* autograph_x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB32B118DA131A000D9EF6 /* autograph_x.png */; };
+		4CCB32B818DA131A000D9EF6 /* t1_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB32B218DA131A000D9EF6 /* t1_logo.png */; };
+		4CCB32B918DA131A000D9EF6 /* libT1Autograph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CCB32B318DA131A000D9EF6 /* libT1Autograph.a */; };
 		920B60A218B955A000BE006C /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 920B60A118B955A000BE006C /* iCarousel.m */; };
 		920B60A418B95C6100BE006C /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 920B60A318B95C6100BE006C /* page.png */; };
 		920B610318B9671B00BE006C /* TimelinePhotos in Resources */ = {isa = PBXBuildFile; fileRef = 920B610218B9671B00BE006C /* TimelinePhotos */; };
 		920B610618BAA5FC00BE006C /* TimelineItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 920B610518BAA5FC00BE006C /* TimelineItem.m */; };
 		923C1DD218BD396D00C44095 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923C1DD118BD396D00C44095 /* CollectionViewController.m */; };
-		923C1DD818BD62FD00C44095 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 923C1DD318BD62FD00C44095 /* Images */; };
-		923C1DD918BD62FD00C44095 /* libT1Autograph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 923C1DD418BD62FD00C44095 /* libT1Autograph.a */; };
 		925FE0E318921330002C11D3 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0E218921330002C11D3 /* VideoViewController.m */; };
 		925FE0EC189213F3002C11D3 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0EB189213F3002C11D3 /* TabBarController.m */; };
 		925FE0F218921479002C11D3 /* CampusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925FE0F118921479002C11D3 /* CampusViewController.m */; };
@@ -128,6 +129,12 @@
 		4CC93EE7189C394C00ACE18A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4CC93EE9189C395600ACE18A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4CC93EEB189C396300ACE18A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4CCB32B118DA131A000D9EF6 /* autograph_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = autograph_x.png; sourceTree = "<group>"; };
+		4CCB32B218DA131A000D9EF6 /* t1_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t1_logo.png; sourceTree = "<group>"; };
+		4CCB32B318DA131A000D9EF6 /* libT1Autograph.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libT1Autograph.a; path = T1Autograph/libT1Autograph.a; sourceTree = SOURCE_ROOT; };
+		4CCB32B418DA131A000D9EF6 /* T1Autograph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = T1Autograph.h; path = T1Autograph/T1Autograph.h; sourceTree = SOURCE_ROOT; };
+		4CCB32B518DA131A000D9EF6 /* T1Signature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = T1Signature.h; path = T1Autograph/T1Signature.h; sourceTree = SOURCE_ROOT; };
+		4CCB32B618DA131A000D9EF6 /* T1SignaturePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = T1SignaturePoint.h; path = T1Autograph/T1SignaturePoint.h; sourceTree = SOURCE_ROOT; };
 		920B60A018B955A000BE006C /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		920B60A118B955A000BE006C /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		920B60A318B95C6100BE006C /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
@@ -136,11 +143,6 @@
 		920B610518BAA5FC00BE006C /* TimelineItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineItem.m; sourceTree = "<group>"; };
 		923C1DD018BD396D00C44095 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		923C1DD118BD396D00C44095 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
-		923C1DD318BD62FD00C44095 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
-		923C1DD418BD62FD00C44095 /* libT1Autograph.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libT1Autograph.a; sourceTree = "<group>"; };
-		923C1DD518BD62FD00C44095 /* T1Autograph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1Autograph.h; sourceTree = "<group>"; };
-		923C1DD618BD62FD00C44095 /* T1Signature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1Signature.h; sourceTree = "<group>"; };
-		923C1DD718BD62FD00C44095 /* T1SignaturePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T1SignaturePoint.h; sourceTree = "<group>"; };
 		925FE0E118921330002C11D3 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		925FE0E218921330002C11D3 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		925FE0EA189213F3002C11D3 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -171,7 +173,7 @@
 			files = (
 				4C6AA73F18A7FCEA00287E9C /* MapKit.framework in Frameworks */,
 				4CC93EEC189C396300ACE18A /* SystemConfiguration.framework in Frameworks */,
-				923C1DD918BD62FD00C44095 /* libT1Autograph.a in Frameworks */,
+				4CCB32B918DA131A000D9EF6 /* libT1Autograph.a in Frameworks */,
 				4CC93EEA189C395600ACE18A /* Security.framework in Frameworks */,
 				4CC93EE8189C394C00ACE18A /* QuartzCore.framework in Frameworks */,
 				4CC93EE6189C394300ACE18A /* MobileCoreServices.framework in Frameworks */,
@@ -344,6 +346,16 @@
 			name = Videos;
 			sourceTree = "<group>";
 		};
+		4CCB32B018DA131A000D9EF6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4CCB32B118DA131A000D9EF6 /* autograph_x.png */,
+				4CCB32B218DA131A000D9EF6 /* t1_logo.png */,
+			);
+			name = Images;
+			path = T1Autograph/Images;
+			sourceTree = SOURCE_ROOT;
+		};
 		920B609F18B955A000BE006C /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,11 +369,11 @@
 		923C1DDA18BD630600C44095 /* Signature */ = {
 			isa = PBXGroup;
 			children = (
-				923C1DD318BD62FD00C44095 /* Images */,
-				923C1DD418BD62FD00C44095 /* libT1Autograph.a */,
-				923C1DD518BD62FD00C44095 /* T1Autograph.h */,
-				923C1DD618BD62FD00C44095 /* T1Signature.h */,
-				923C1DD718BD62FD00C44095 /* T1SignaturePoint.h */,
+				4CCB32B018DA131A000D9EF6 /* Images */,
+				4CCB32B318DA131A000D9EF6 /* libT1Autograph.a */,
+				4CCB32B418DA131A000D9EF6 /* T1Autograph.h */,
+				4CCB32B518DA131A000D9EF6 /* T1Signature.h */,
+				4CCB32B618DA131A000D9EF6 /* T1SignaturePoint.h */,
 			);
 			name = Signature;
 			sourceTree = "<group>";
@@ -479,7 +491,7 @@
 				4CC93EC1189C384A00ACE18A /* 37x-Checkmark.png in Resources */,
 				92AD33A018BB40470097BEF4 /* wallpaper.jpg in Resources */,
 				4CC93ED8189C386200ACE18A /* PhotoDetailViewController.xib in Resources */,
-				923C1DD818BD62FD00C44095 /* Images in Resources */,
+				4CCB32B718DA131A000D9EF6 /* autograph_x.png in Resources */,
 				4CC93ECA189C384A00ACE18A /* Sunflowers.jpg in Resources */,
 				92AD339E18BB30110097BEF4 /* History.json in Resources */,
 				4CC93EC8189C384A00ACE18A /* ParseLogo,jpg.jpg in Resources */,
@@ -489,6 +501,7 @@
 				92AD33A518BC2ED60097BEF4 /* Buildings.json in Resources */,
 				4CC93EC2189C384A00ACE18A /* Crowd.jpg in Resources */,
 				4C6AA74A18A9A9C100287E9C /* zoomOut.jpeg in Resources */,
+				4CCB32B818DA131A000D9EF6 /* t1_logo.png in Resources */,
 				4C7D79361891CD7A007F1692 /* Images.xcassets in Resources */,
 				4CC93EC4189C384A00ACE18A /* Default.png in Resources */,
 				4CC93EC9189C384A00ACE18A /* ParseLogo.jpg in Resources */,
@@ -669,10 +682,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "newHiresApp/newHiresApp-Prefix.pch";
 				INFOPLIST_FILE = "newHiresApp/newHiresApp-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/bschen/Documents/Dev/newHiresApp/newHiresApp/newHiresApp,
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/T1Autograph";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -691,10 +701,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "newHiresApp/newHiresApp-Prefix.pch";
 				INFOPLIST_FILE = "newHiresApp/newHiresApp-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/bschen/Documents/Dev/newHiresApp/newHiresApp/newHiresApp,
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/T1Autograph";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
